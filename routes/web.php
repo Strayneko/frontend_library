@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,20 @@ Route::get('/', function () {
 Route::prefix('book')
     ->name('book.')
     ->controller(BookController::class)
+    ->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::get('/{id}', 'show')->name('show');
+        Route::get('/{id}/edit', 'edit')->name('edit');
+        Route::get('/{id}/delete', 'delete')->name('delete');
+        Route::post('/create', 'store')->name('store');
+        Route::post('/{id}/update', 'update')->name('update');
+    });
+
+
+Route::prefix('category')
+    ->name('category.')
+    ->controller(CategoryController::class)
     ->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');

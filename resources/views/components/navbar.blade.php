@@ -7,9 +7,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="#">Buku</a>
-                <a class="nav-link" href="#">Kategori</a>
-                <a class="nav-link" href="#">Author</a>
+                <a class="nav-link active" aria-current="page" href="{{ route('book.index') }}">Buku</a>
+                <a class="nav-link" href="{{ route('category.index') }}">Kategori</a>
+                <a class="nav-link" href="{{ route('author.index') }}">Author</a>
             </div>
         </div>
     </div>

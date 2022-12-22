@@ -28,6 +28,7 @@ class BookController extends Controller
         $book = HttpClient::fetch('get', 'http://127.0.0.1:8000/api/book/' . $id);
         // if book not found, return 404 error
         if (!$book['status']) return abort(404);
+
         return view('book.show', [
             'book' => $book['data']
         ]);
@@ -49,6 +50,7 @@ class BookController extends Controller
     public function store(Request $request)
     {
         $files = [];
+        // if user upload an image, append file input to files variable
         if ($request->file('image')) $files['image'] = $request->file('image');
         $book =  HttpClient::fetch(url: 'http://127.0.0.1:8000/api/book/', body: $request->all(), files: $files);
         // if book response status is false
@@ -56,7 +58,7 @@ class BookController extends Controller
         if (!$book['status']) return redirect()->back()->withErrors($book['message']);
 
         //redirect and give feedback message when book data has successfully inserted, 
-        return redirect()->route('book.index')->with('success', $book['message']);
+        return redirect()->route('book.index')->withInput()->with('success', $book['message']);
     }
 
     // TODO: show edit book form
@@ -95,7 +97,7 @@ class BookController extends Controller
     // TODO: delete book data by specific id with api
     public function delete($id)
     {
-        $book =  HttpClient::fetch('delete', url: "http://127.0.0.1:8000/api/book/$id/delete");
+        $book =  HttpClient::fetch(method: 'delete', url: "http://127.0.0.1:8000/api/book/$id/delete");
         // if book response status is false
         // redirect user with error message
         if (!$book['status']) return redirect()->back()->withErrors($book['message']);
