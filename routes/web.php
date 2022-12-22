@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AuthorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,8 +40,19 @@ Route::prefix('category')
     ->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
-        Route::get('/{id}', 'show')->name('show');
         Route::get('/{id}/edit', 'edit')->name('edit');
+        Route::get('/{id}/delete', 'delete')->name('delete');
+        Route::post('/create', 'store')->name('store');
+        Route::post('/{id}/update', 'update')->name('update');
+    });
+
+Route::prefix('author')
+    ->name('author.')
+    ->controller(AuthorController::class)
+    ->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::get('/{id}', 'show')->name('show');
         Route::get('/{id}/delete', 'delete')->name('delete');
         Route::post('/create', 'store')->name('store');
         Route::post('/{id}/update', 'update')->name('update');
