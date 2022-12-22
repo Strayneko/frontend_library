@@ -33,12 +33,10 @@
                     <td>{{ $category['description'] }}</td>
                     <td>{{ $category['age_rating'] }}</td>
                     <td>
-                        {{-- <a href="{{ route('category.show', ['id' => $category['id']]) }}"
-                            class="badge text-bg-success text-white">Detail</a>
                         <a href="{{ route('category.edit', ['id' => $category['id']]) }}"
                             class="badge text-bg-warning text-white">Edit</a>
                         <a href="{{ route('category.delete', ['id' => $category['id']]) }}"
-                            class="badge text-white text-bg-danger" onclick="return confirm('apakah anda yakin?')">Hapus</a> --}}
+                            class="badge text-white text-bg-danger" onclick="return confirm('apakah anda yakin?')">Hapus</a>
                     </td>
                 </tr>
             @endforeach
