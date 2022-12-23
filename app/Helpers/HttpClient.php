@@ -18,7 +18,6 @@ class HttpClient
             $client = Http::asMultipart();
             // attach file to client
             foreach ($files as $key => $file) {
-
                 $path = $file->getPathname();
                 $name = $file->getClientOriginalName();
                 // attach file

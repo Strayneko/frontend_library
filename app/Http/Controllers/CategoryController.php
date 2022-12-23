@@ -48,7 +48,7 @@ class CategoryController extends Controller
         // redirect user with error message
         if (!$category['status']) return redirect()->back()->withErrors($category['message']);
 
-        //redirect and give feedback message when book data has successfully inserted, 
+        //redirect and give feedback message when category data has successfully inserted, 
         return redirect()->route('category.index')->withInput()->with('success', $category['message']);
     }
     // TODO: update category data via api by id

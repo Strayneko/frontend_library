@@ -53,6 +53,7 @@ Route::prefix('author')
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
         Route::get('/{id}', 'show')->name('show');
+        Route::get('/{id}/edit', 'edit')->name('edit');
         Route::get('/{id}/delete', 'delete')->name('delete');
         Route::post('/create', 'store')->name('store');
         Route::post('/{id}/update', 'update')->name('update');

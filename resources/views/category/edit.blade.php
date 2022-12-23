@@ -42,7 +42,7 @@
         <input type="file" class="form-control mb-3" id="logo" name="logo" />
 
         <div class="mb-4">
-            <button class="btn btn-success" type="submit">Tambah</button>
+            <button class="btn btn-success" type="submit">Edit</button>
             <a href="{{ route('category.index') }}" class="btn btn-warning">Kembali</a>
         </div>
     </form>

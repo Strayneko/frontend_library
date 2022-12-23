@@ -26,6 +26,7 @@ class BookController extends Controller
     {
         // get book data by specific id
         $book = HttpClient::fetch('get', 'http://127.0.0.1:8000/api/book/' . $id);
+
         // if book not found, return 404 error
         if (!$book['status']) return abort(404);
 
